@@ -1,4 +1,5 @@
-// Import necessary components and functions from react-router-dom.
+import AddContact from "./pages/AddContact";
+import Contact from "./pages/Contact.jsx"; // Import necessary components and functions from react-router-dom.
 
 import {
     createBrowserRouter,
@@ -8,7 +9,6 @@ import {
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { Single } from "./pages/Single";
-import { Demo } from "./pages/Demo";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,11 +20,13 @@ export const router = createBrowserRouter(
 
       // Root Route: All navigation will start from here.
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
+        <Route path="/add" element={<AddContact />} />
+        <Route path="/edit/:id" element={<AddContact />} />
+
 
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
-        <Route path= "/" element={<Home />} />
+        <Route path= "/" element={<Contact />} />
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
-        <Route path="/demo" element={<Demo />} />
       </Route>
     )
 );
